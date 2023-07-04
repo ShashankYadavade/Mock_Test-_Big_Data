@@ -1,0 +1,8 @@
+7. Find the total number of orders placed by each customer and display the results in descending order of the number of orders.
+
+Solution:
+
+SELECT customer_id, COUNT(order_id) AS order_count
+FROM Orders
+GROUP BY customer_id
+ORDER BY order_count DESC
