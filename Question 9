@@ -1,0 +1,7 @@
+9. Calculate the average price of all products in each category and display the results along with the category name.
+
+Solution:
+
+SELECT category_name, AVG(price) AS average_price
+FROM Products
+GROUP BY category_name
