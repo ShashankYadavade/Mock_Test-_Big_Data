@@ -1,0 +1,21 @@
+2.  Given a PySpark DataFrame named "sales_data" with columns "product_name" and "revenue", write a code to calculate the total revenue for each product and display the result in descending order.
+
+Solution:
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
+
+# Create a SparkSession
+spark = SparkSession.builder.appName("Total Revenue").getOrCreate()
+
+# Assuming you already have the "sales_data" DataFrame
+
+# Calculate total revenue for each product
+total_revenue_df = sales_data.groupBy("product_name").sum("revenue")
+
+# Sort the result in descending order
+sorted_revenue_df = total_revenue_df.orderBy(col("sum(revenue)").desc())
+
+# Display the result
+sorted_revenue_df.show()
+
