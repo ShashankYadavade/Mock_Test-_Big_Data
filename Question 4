@@ -1,0 +1,14 @@
+4. Consider a PySpark DataFrame named "transactions" with columns "transaction_id", "user_id", and "amount". Write a code to calculate the average transaction amount for each user and display the result.
+
+Solution:
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
+
+# Create a SparkSession
+spark = SparkSession.builder.appName("Average Transaction").getOrCreate()
+
+# Assuming we already have the "transactions" DataFrame
+
+# Calculate average transaction amount for each user
+average_amount_df = transactions.groupBy("user_id").avg("amount")
