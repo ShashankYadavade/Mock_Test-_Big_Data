@@ -1,0 +1,11 @@
+6. Retrieve all the customers from the "Customers" table whose age is greater than 25 and have made at least one purchase.
+
+Solution:
+
+SELECT *
+FROM Customers
+WHERE age > 25 AND customer_id IN (
+  SELECT customer_id
+  FROM Purchases
+)
+
