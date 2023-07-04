@@ -1,0 +1,14 @@
+1. Write a PySpark code to read a CSV file named "employees.csv" containing the following columns: "employee_id", "name", "age", "department". Display the top 10 records from the DataFrame.
+
+Solution:
+
+from pyspark.sql import SparkSession
+
+# Create a SparkSession
+spark = SparkSession.builder.appName("Read CSV").getOrCreate()
+
+# Read the CSV file into a DataFrame
+df = spark.read.csv("employees.csv", header=True, inferSchema=True)
+
+# Display the top 10 records
+df.show(10)
