@@ -1,0 +1,11 @@
+10. Retrieve the top 5 customers who have spent the highest total amount on purchases.
+Solution:
+
+SELECT customer_id, SUM(amount) AS total_amount
+FROM Purchases
+GROUP BY customer_id
+ORDER BY total_amount DESC
+LIMIT 5
+
+
+
